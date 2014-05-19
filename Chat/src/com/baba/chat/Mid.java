@@ -36,6 +36,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -75,12 +77,46 @@ public class Mid extends Activity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mPlanetTitles;
+    private String ipaddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+      
+        
+        // EditText ett=(EditText)findViewById(R.id.ipaddd);
+        //Button startchatting=(Button)findViewById(R.id.startchatter);
+       /* 
+       startchatting.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+		//ipadd=et.getText().toString();
+		Toast.makeText(getApplicationContext(), "HELLO", Toast.LENGTH_SHORT).show();
+		/*Intent y=new Intent ("com.baba.chat.MAINACTIVITY");
+		
+		if(ipaddress!="")
+		{startActivity(y);
+			
+		}
+		
+		else
+		{
+			Toast.makeText(getApplicationContext(), "Please Enter IP address", Toast.LENGTH_SHORT).show();
+		}
+			
+		
+		
+		}
+	});
+    */
+   
+        
+       // Toast.makeText(getApplicationContext(), "11", Toast.LENGTH_SHORT).show();
+       
+        
         mTitle = mDrawerTitle = getTitle();
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -96,7 +132,7 @@ public class Mid extends Activity {
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-
+        //Toast.makeText(getApplicationContext(), "22", Toast.LENGTH_SHORT).show();
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the sliding drawer and the action bar app icon
         mDrawerToggle = new ActionBarDrawerToggle(
@@ -121,6 +157,17 @@ public class Mid extends Activity {
         if (savedInstanceState == null) {
             selectItem(0);
         }
+        
+ 
+      
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     @Override
@@ -168,7 +215,40 @@ public class Mid extends Activity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
+        	// Toast.makeText(getApplicationContext(), "position", Toast.LENGTH_SHORT).show();
+        	if (position==0)
+        	{
+        	Intent in = new Intent ("com.baba.chat.MAINACTIVITY");
+        	//in.putExtra("myip", "babajiiii");
+        	startActivity(in);
+        	}
+        	
+        	else if (position==1)
+        	{
+        		
+        		Intent in = new Intent ("com.baba.chat.SETTINGS");
+            	//in.putExtra("myip", "babajiiii");
+            	startActivity(in);
+        	}
+        	
+        	else if (position==2)
+        	{
+        		Intent in = new Intent ("com.baba.chat.HELP");
+            	//in.putExtra("myip", "babajiiii");
+            	startActivity(in);
+        	}
+        	
+        	else if (position==3)
+        	{
+        		Toast.makeText(getApplicationContext(), "An App By Kaushik BABA...\nFuture of Programming World...", Toast.LENGTH_SHORT).show();
+        	}
+        	
+        	else
+        	{
+        		Toast.makeText(getApplicationContext(), "Something is WRONG", Toast.LENGTH_SHORT).show();
+        	}
+        	
+        	
         }
     }
 

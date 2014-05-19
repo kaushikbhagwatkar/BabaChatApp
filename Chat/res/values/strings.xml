@@ -11,14 +11,11 @@
     
       <!-- Nav Drawer Menu Items -->
    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Start Chat</item>
+        <item>Settings</item>
+        <item>Help</item>
+        <item>About Us</item>
+        
     </string-array>
     
     

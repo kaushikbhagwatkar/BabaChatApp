@@ -2,9 +2,11 @@ package com.baba.chat;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
@@ -62,6 +64,12 @@ public class Login extends Activity
 			
 			@Override
 			public void onClick(View v) {
+				
+				InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE); 
+
+inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                           InputMethodManager.HIDE_NOT_ALWAYS);
 				// TODO Auto-generated method stub
 			
 				Intent i=new Intent("com.baba.chat.MID");
