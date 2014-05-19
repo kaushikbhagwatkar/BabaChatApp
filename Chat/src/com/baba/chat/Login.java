@@ -64,7 +64,7 @@ public class Login extends Activity
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 			
-				Intent i=new Intent("com.baba.chat.MAINACTIVITY");
+				Intent i=new Intent("com.baba.chat.MID");
 				startActivity(i);
 				
 			}
