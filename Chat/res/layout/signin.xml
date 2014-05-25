@@ -8,7 +8,7 @@
     
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -19,7 +19,7 @@
         
     
      <TextView
-         android:id="@+id/regtextk"
+         android:id="@+id/regtexts"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
@@ -27,7 +27,7 @@
          android:paddingLeft="30dp"
          android:paddingRight="30dp"
          android:paddingTop="0dp"
-         android:text="Register New User"
+         android:text="Sign In User"
          android:textAppearance="?android:attr/textAppearanceMedium"
          android:textStyle="bold" />
      
@@ -48,33 +48,25 @@
         android:layout_weight="1"
         android:orientation="vertical" >
 
-       
         <TextView
-            android:id="@+id/nametextk"
+            android:id="@+id/nametexts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name:" />
 
-        <EditText
-            android:id="@+id/uname"
+        <Spinner
+            android:id="@+id/namespinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="Email"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="text" >
-
-            <requestFocus />
-        </EditText>
+            android:layout_height="36dp" />
 
         <TextView
-            android:id="@+id/rolltextk"
+            android:id="@+id/rolltexts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roll No:" />
 
         <EditText
-            android:id="@+id/rollnok"
+            android:id="@+id/rollnos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="Email"
@@ -83,13 +75,13 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/passtextk"
+            android:id="@+id/passtexts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create password" />
+            android:text="Enter password" />
 
         <EditText
-            android:id="@+id/passk"
+            android:id="@+id/passs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="Email"
@@ -104,51 +96,31 @@
         android:layout_weight="1"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/choosepic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Choose your pic" />
-
+       
         <ImageView
-            android:id="@+id/pic"
+            android:id="@+id/pics"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
             android:src="@drawable/newpic" />
 
-        <Button
-            android:id="@+id/picselect"
-            android:layout_width="75dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:text="Select Pic"
-            android:textSize="10sp" />
-
+      
     </LinearLayout>
     
      
     
     
     </LinearLayout>
-    
-<CheckBox
-    android:id="@+id/acceptk"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:paddingBottom="3dp"
-    android:paddingTop="3dp"
-    android:text="I Accept All Rules of ClassRoom" />
+
 
     <Button
-        android:id="@+id/regbuttonk"
+        android:id="@+id/signinbuttonk"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:alpha="0.5"
-        android:text="Register"
+        android:text="Sign In"
+        android:focusableInTouchMode="true"
         android:scaleType="centerInside" />
 
     

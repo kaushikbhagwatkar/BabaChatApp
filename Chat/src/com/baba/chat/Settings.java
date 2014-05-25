@@ -35,7 +35,7 @@ public class Settings extends Activity {
 		super.onCreate(kaushikrocks);
 		setContentView(R.layout.set);
 		
-		File folder = new File(Environment.getExternalStorageDirectory().toString()+"/ChatApp/");
+		File folder = new File(Environment.getExternalStorageDirectory().toString()+"/AakashApp/");
 		  folder.mkdirs();
 		  
 		  try {

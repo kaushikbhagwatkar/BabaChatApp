@@ -10,7 +10,10 @@ android:targetSdkVersion="17" />
  
 <uses-permission android:name="android.permission.INTERNET" />
  <uses-permission  android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    
+     <uses-permission android:name="android.permission.CAMERA" />
+ <uses-feature android:name="android.hardware.camera" />
+ <uses-feature android:name="android.hardware.camera.autofocus" />
+ <uses-feature android:name="android.hardware.camera.front"/>
  
 <application
 android:allowBackup="true"
@@ -29,6 +32,18 @@ android:label="@string/app_name" >
 <category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
 </activity>
+
+   
+<activity
+android:name=".FirstMainActivity"
+android:label="@string/app_name" >
+<intent-filter>
+<action android:name="com.baba.chat.FIRSTMAINACTIVITY" />
+ 
+<category android:name="android.intent.category.DEFAULT" />
+</intent-filter>
+</activity>
+
 
    
 <activity
@@ -54,9 +69,14 @@ android:label="@string/app_name" >
 
 
 
+
+
 <activity
 android:name=".Splash"
-android:label="@string/app_name" >
+android:label="@string/app_name" 
+android:screenOrientation="landscape"
+
+>
 <intent-filter>
 <action android:name="android.intent.action.MAIN" />
  
@@ -67,7 +87,9 @@ android:label="@string/app_name" >
 
 <activity
 android:name=".Login"
-android:label="@string/app_name" >
+android:label="@string/app_name"
+android:screenOrientation="landscape"
+ >
 <intent-filter>
 <action android:name="com.baba.chat.LOGIN" />
  
@@ -85,6 +107,33 @@ android:label="@string/app_name" >
 <category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
 </activity>
+
+
+
+<activity
+android:name=".Signin"
+android:label="@string/app_name" >
+<intent-filter>
+<action android:name="com.baba.chat.SIGNIN" />
+ 
+<category android:name="android.intent.category.DEFAULT" />
+</intent-filter>
+</activity>
+
+
+<activity
+android:name=".TestConnection"
+android:label="@string/app_name" >
+<intent-filter>
+<action android:name="com.baba.chat.TESTCONNECTION" />
+ 
+<category android:name="android.intent.category.DEFAULT" />
+</intent-filter>
+</activity>
+
+
+
+
 
 </application>
  

@@ -1,9 +1,13 @@
 package com.baba.chat;
 
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Environment;
 
 public class Splash extends Activity
 {
@@ -13,8 +17,13 @@ public class Splash extends Activity
 	protected void onCreate(Bundle babarocks) {
 		// TODO Auto-generated method stub
 		super.onCreate(babarocks);
+		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		setContentView(R.layout.splash);
 		
+		
+		File folder = new File(Environment.getExternalStorageDirectory().toString()+"/AakashApp/");
+		  folder.mkdirs();
+		  
 		Thread timer1 =new Thread()
 		{
 			public void run()
@@ -29,7 +38,7 @@ public class Splash extends Activity
 					}
 				finally
 				{
-					Intent openactivity1 =new Intent("com.baba.chat.LOGIN");
+					Intent openactivity1 =new Intent("com.baba.chat.FIRSTMAINACTIVITY");
 					startActivity(openactivity1);
 				}
 			}

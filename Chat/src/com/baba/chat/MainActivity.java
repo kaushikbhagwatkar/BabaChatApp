@@ -98,7 +98,7 @@ private class SendMessage extends AsyncTask<Void, Void, Void> {
 protected Void doInBackground(Void... params) {
 try {
  
-client = new Socket(line, 4444); // connect to the server
+client = new Socket("10.4.225.78", 4444); // connect to the server
 printwriter = new PrintWriter(client.getOutputStream(), true);
 printwriter.write(messsage); // write the message to output stream
  
