@@ -98,6 +98,18 @@ return null;
  
 }
 
+@Override
+public void onBackPressed() {
+	Toast.makeText(getApplicationContext(), "You Are Logged Out...", Toast.LENGTH_LONG).show();
+    startActivity(new Intent("com.baba.chat.FIRSTMAINACTIVITY"));
+    finish();
+}
+
+
+
+
+
+
 }
 	
 

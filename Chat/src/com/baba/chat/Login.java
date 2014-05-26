@@ -37,7 +37,7 @@ public class Login extends FragmentActivity
 	ImageView dp;
 	Button selectPic;
 	EditText username,password,rollno;
-	String tagdapath;
+	String tagdapath=null;
 	
 //
 	private static final int REQUEST_CAMERA = 0;
@@ -63,7 +63,7 @@ public class Login extends FragmentActivity
 		// Buttons and checkbox working
 		register=(Button)findViewById(R.id.regbuttonk);
 		dp=(ImageView)findViewById(R.id.pic);
-		selectPic=(Button)findViewById(R.id.picselect);
+		//selectPic=(Button)findViewById(R.id.picselect);
 		acceptRules=(CheckBox)findViewById(R.id.acceptk);
 		
 		username=(EditText)findViewById(R.id.uname);
@@ -76,7 +76,7 @@ public class Login extends FragmentActivity
 		
 		// Selecting Pic
 		
-		selectPic.setOnClickListener(new View.OnClickListener() {
+		dp.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -114,6 +114,8 @@ public class Login extends FragmentActivity
 			@Override
 			public void onClick(View v) {
 				
+				
+
 				InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE); 
 
@@ -124,6 +126,33 @@ public class Login extends FragmentActivity
 				String name= username.getText().toString();
 				String roll = rollno.getText().toString();
 				String pass = password.getText().toString();
+				
+				File dir = new File(Environment.getExternalStorageDirectory().toString()+"/AakashApp/"+name);
+				
+				
+				if (name.equals("")||roll.equals("")||pass.equals(""))
+				{
+					Toast.makeText(getApplicationContext(), "Please Fill All The Fields", Toast.LENGTH_SHORT).show();
+					
+				}
+				
+				else if (tagdapath==null||tagdapath.equals(""))
+				{
+					Toast.makeText(getApplicationContext(), "Please Select Your Profile Pic", Toast.LENGTH_SHORT).show();
+					
+				}
+				
+				
+				else if (dir.exists() && dir.isDirectory())
+				{
+					Toast.makeText(getApplicationContext(), "User Already Exists\nPlease Choose A Different Username ", Toast.LENGTH_SHORT).show();
+				}
+				
+				
+				else{
+				
+				//				//Here it starts
+				
 				
 				PrintWriter writer,writer1,writer2,writer3;
 				
@@ -183,9 +212,13 @@ public class Login extends FragmentActivity
 				
 				
 				
-				Intent i=new Intent("com.baba.chat.SIGNIN");
+				Intent i=new Intent("com.baba.chat.TESTCONNECTION");
 				startActivity(i);
+				finish();
 				
+				// Here it ends
+				
+				}
 			}
 		});		
 		
@@ -322,7 +355,16 @@ public class Login extends FragmentActivity
 			return cursor.getString(column_index);
 		}
 		
-	
+
+
+	    @Override
+	    public void onBackPressed() {
+	       
+	        startActivity(new Intent("com.baba.chat.FIRSTMAINACTIVITY"));
+	        finish();
+	    }
+
+
 	
 	
 }
