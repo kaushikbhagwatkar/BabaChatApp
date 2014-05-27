@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,22 +34,24 @@ public class FirstMainActivity extends Activity {
 	 List<String> rollstate = new ArrayList<String>();
 	 List<String> passstate = new ArrayList<String>();
 	 
-	 String mypath,currentpass;
+	 String mypath,currentpass,currentusername,currentroll;
 	 int statecount;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.first_activity_main);
+		TextView noacc = (TextView)findViewById(R.id.heading);
+		
 		//
 		try{
 		mypath=Environment.getExternalStorageDirectory().toString()+"/AakashApp/";
-		//File rootfile = new File(mypath);
-		//File[] users; 
-	    //users = rootfile.listFiles();
+		
 	       int sd=0;statecount=0;
 	       File[] users = new File(mypath).listFiles();
-	        for (int i=0;i < users.length;i++) {
+	       
+	       // Storing all usernames in state and retriving password and roll nos in same order
+	       for (int i=0;i < users.length;i++) {
 	           // System.out.println(users[i]);
 	            if (users[i].isDirectory())
 		    	{
@@ -73,11 +76,14 @@ public class FirstMainActivity extends Activity {
 		}
 		catch(Exception e)
 		{
-			Toast.makeText(getApplicationContext(), e.toString(),Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getApplicationContext(), e.toString(),Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "No Accounts Created Yet", Toast.LENGTH_LONG).show();
+			noacc.setText("NO ACCOUNTS");
+			
 		}
 		
 		
-		//
+		// Converting arraylist to array
 	    
 	    final String [] web = state.toArray(new String [state.size()] );
 	    final String [] rollweb = rollstate.toArray(new String [state.size()] );
@@ -85,6 +91,7 @@ public class FirstMainActivity extends Activity {
 	    
 	    newaccbutton = (Button)findViewById(R.id.createnewacc);
 	    
+	    // Register button
 	    newaccbutton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -99,11 +106,12 @@ public class FirstMainActivity extends Activity {
 			}
 		});
 	    
-		
+				// Setting listview
 				CustomList adapter = new CustomList(FirstMainActivity.this, web,rollweb);
 				list=(ListView)findViewById(R.id.list);
 				list.setAdapter(adapter);
 				
+				// Giving pop up and validation
 				
 				list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -111,6 +119,9 @@ public class FirstMainActivity extends Activity {
 		            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 		            	
 		            	currentpass=passweb[position];
+		            	currentroll=rollweb[position];
+		            	currentusername=web[position];
+		            	
 		            	
 		            	AlertDialog.Builder alert = new AlertDialog.Builder(FirstMainActivity.this);
 
@@ -126,12 +137,16 @@ public class FirstMainActivity extends Activity {
 		            	public void onClick(DialogInterface dialog, int whichButton) {
 		            	  String value = input.getText().toString();
 		            	  
+		            	  //  Checking password
 		            	  if (value.equals(currentpass))
 		            	  {
 		            		  Toast.makeText(getApplicationContext(), "SUCCESSFUL LOGIN",Toast.LENGTH_SHORT).show();
 		            		  Intent tc=new Intent("com.baba.chat.TESTCONNECTION");
+		            		  tc.putExtra("username1", currentusername);
+		            		  tc.putExtra("roll1", currentroll);
+		            		  
 		            		  startActivity(tc);
-		            		  finish();
+		            		 // finish();
 		            		  
 		            		  
 		            	  }
@@ -165,6 +180,7 @@ public class FirstMainActivity extends Activity {
 				
 	}
 		
+	// Double backpress exit
 	private static long back_pressed;
 
 	@Override

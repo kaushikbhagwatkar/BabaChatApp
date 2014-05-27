@@ -127,9 +127,11 @@ public class Login extends FragmentActivity
 				String roll = rollno.getText().toString();
 				String pass = password.getText().toString();
 				
+				
+				
 				File dir = new File(Environment.getExternalStorageDirectory().toString()+"/AakashApp/"+name);
 				
-				
+				// Validation of all fields
 				if (name.equals("")||roll.equals("")||pass.equals(""))
 				{
 					Toast.makeText(getApplicationContext(), "Please Fill All The Fields", Toast.LENGTH_SHORT).show();
@@ -151,7 +153,7 @@ public class Login extends FragmentActivity
 				
 				else{
 				
-				//				//Here it starts
+				//Here it starts // Making directory of user's name and putting apt files inside
 				
 				
 				PrintWriter writer,writer1,writer2,writer3;
@@ -180,7 +182,7 @@ public class Login extends FragmentActivity
 						}
 				
 				  
-				// Copying Started
+				// Copying Started of pic
 					
 					
 					File newFile= new File(tagdapath);
@@ -210,7 +212,7 @@ public class Login extends FragmentActivity
 					// Copying ended
 				
 				
-				
+				//  Going for checking connection
 				
 				Intent i=new Intent("com.baba.chat.TESTCONNECTION");
 				startActivity(i);
@@ -224,6 +226,8 @@ public class Login extends FragmentActivity
 		
 	}
 	
+	
+	// Selectimage Function for selecting dp
 	 void selectImage() {
 		final CharSequence[] items = { "Take Photo", "Choose from Library",
 				"Cancel" };
@@ -297,7 +301,7 @@ public class Login extends FragmentActivity
 						bm = BitmapFactory.decodeFile(tempPath,
 								btmapOptions);
 
-						// bm = Bitmap.createScaledBitmap(bm, 70, 70, true);
+						// Setting view to bmp image created
 						dp.setImageBitmap(bm);
 						
 						
@@ -355,8 +359,6 @@ public class Login extends FragmentActivity
 			return cursor.getString(column_index);
 		}
 		
-
-
 	    @Override
 	    public void onBackPressed() {
 	       

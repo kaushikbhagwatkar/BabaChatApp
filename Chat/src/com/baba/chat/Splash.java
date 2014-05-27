@@ -21,9 +21,12 @@ public class Splash extends Activity
 		setContentView(R.layout.splash);
 		
 		
+		// Creating folder on launch if not present
 		File folder = new File(Environment.getExternalStorageDirectory().toString()+"/AakashApp/");
 		  folder.mkdirs();
 		  
+		  
+		  // Showing splash screen for 3.5 seconds
 		Thread timer1 =new Thread()
 		{
 			public void run()
@@ -37,7 +40,7 @@ public class Splash extends Activity
 					e.printStackTrace();
 					}
 				finally
-				{
+				{// Launching Signin screen 
 					Intent openactivity1 =new Intent("com.baba.chat.FIRSTMAINACTIVITY");
 					startActivity(openactivity1);
 				}
