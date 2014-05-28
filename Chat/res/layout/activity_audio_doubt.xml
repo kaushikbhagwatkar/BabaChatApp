@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="450dp"
+    android:layout_height="300dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:weightSum="10" >
+
+    <!--  DISPLAY MESSAGES LIKE 'YOU ARE IN THE WAITING QUEUE/ ACTIVE QUEUE / ITS YOUR TURN -->
+    <TextView
+        android:id="@+id/state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:layout_weight="3"
+        android:text="@string/hello_world"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <!-- DISPLAY MESSAGES LIKE CURRENT QUEUE POSITION / WAIT FOR YOUR TURN / START SPEAKING -->
+    <TextView
+        android:id="@+id/queue_pos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/hello_world"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <!-- BUTTON TO WITHDRAW REQUEST -->
+    <Button
+        android:id="@+id/cancel_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginTop="37dp"
+        android:text="DISCONNECT" />
+
+</LinearLayout>

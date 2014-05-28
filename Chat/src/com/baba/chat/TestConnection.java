@@ -15,6 +15,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
@@ -32,6 +34,7 @@ public class TestConnection extends Activity
 	EditText e1,e2;
 	String ip;
 	String sid,username,roll,macid;
+	ImageView iv;
 	
 	private Socket client;
 	private PrintWriter printwriter;
@@ -51,11 +54,11 @@ public class TestConnection extends Activity
 			// TODO Auto-generated method stub
 		super.onCreate(kaushik);
 		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		setContentView(R.layout.test);
+		setContentView(R.layout.testnew);
 		b=(Button)findViewById(R.id.testbutton);
 		e1=(EditText)findViewById(R.id.iptest);
 		e2=(EditText)findViewById(R.id.sidtest);
-		textIn=(TextView)findViewById(R.id.read);
+		//textIn=(TextView)findViewById(R.id.read);
 		
 		//Getting username and roll from previous activity
 		
@@ -67,6 +70,16 @@ public class TestConnection extends Activity
 		WifiInfo wInfo = wifiManager.getConnectionInfo();
 		macid = wInfo.getMacAddress();
 	
+		// Setting dp on testconnection
+		
+		iv=(ImageView)findViewById(R.id.dpconnect);
+		String mypath=Environment.getExternalStorageDirectory().toString()+"/AakashApp/";
+
+		Bitmap bmp = BitmapFactory.decodeFile(mypath+username+"/dp.jpg");
+
+		iv.setImageBitmap(bmp);
+		TextView banner =(TextView)findViewById(R.id.banner);
+		banner.setText("Hi "+username);
 		
 		//Connect button
 		b.setOnClickListener(new View.OnClickListener() 
@@ -168,7 +181,7 @@ public class TestConnection extends Activity
 					{
 						Toast.makeText(getApplicationContext(), "CONNECTION SUCCESSFUL...", Toast.LENGTH_LONG).show();
 						
-						Intent rc=new Intent("com.baba.chat.DOUBT");
+						Intent rc=new Intent("com.baba.chat.AUDIOMAINACTIVITY");
 						startActivity(rc);
 						
 						
@@ -193,7 +206,7 @@ public class TestConnection extends Activity
 		  @Override
 		    public void onBackPressed() {
 		       
-		        startActivity(new Intent("com.baba.chat.FIRSTMAINACTIVITY"));
+		        startActivity(new Intent("com.baba.chat.AUDIOMAINACTIVITY"));
 		        finish();
 		    }
 		

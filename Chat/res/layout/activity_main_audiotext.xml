@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:weightSum="10" >
+
+    <!-- VERTICAL LINEAR LAYOUT CONTAINING NAME AND AUDIO DOUBT BUTTON -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:weightSum="6" >
+
+        <!-- TEXTVIEW SHOWING MESSAGE "HI 'NAME'" -->
+
+        <TextView
+            android:id="@+id/hi_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/hello_world"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp" />
+
+        <!-- BUTTON TO ASK AUDIO DOUBT -->
+
+        <ImageButton
+            android:id="@+id/audio_doubt_button"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="3.5"
+            android:background="@android:color/white"
+            android:contentDescription="Press To Ask Doubt_"
+            android:src="@drawable/speak" />
+    </LinearLayout>
+
+    <!-- TO SHOW LINE USED AS SEPERATOR -->
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:background="@android:color/darker_gray" />
+
+    <!-- THIS LAYOUT CONTAINS USER'S IMAGE, DOUBT SUBJECT AND MESSAGE, AND THE SUBMIT BUTTON -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_weight="5.95"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:weightSum="10" >
+
+        <!-- USER'S PROFILE PICTURE -->
+
+        <ImageButton
+            android:id="@+id/dp"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
+            android:layout_weight="4"
+            android:contentDescription="DP"
+            android:src="@android:drawable/ic_menu_crop" />
+
+        <!-- TEXT FIELD TO ENTER THE SUBJECT OF DOUBT -->
+
+        <EditText
+            android:id="@+id/doubt_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:ellipsize="start"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Subject"
+            android:width="350dp" />
+
+        <!-- TEXT FIELD TO ENTER THE DOUBT -->
+
+        <EditText
+            android:id="@+id/text_doubt_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="2.5"
+            android:ellipsize="start"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Your Doubt Here"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:width="350dp" >
+        </EditText>
+
+        <!-- BUTTON TO SEND TEXT DOUBT -->
+
+        <Button
+            android:id="@+id/send_text_doubt"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:text="Submit" />
+    </LinearLayout>
+
+</LinearLayout>
