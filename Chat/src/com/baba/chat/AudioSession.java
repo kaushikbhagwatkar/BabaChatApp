@@ -17,14 +17,14 @@ import android.util.Log;
 
 public class AudioSession {
 	private boolean isRecording=false;
-	public  AudioRecord recorder;
+	public  AudioRecord recorder=null;
 	private int port          =50005;
 	private int sampleRate    =44100;
 	private int channelConfig =AudioFormat.CHANNEL_IN_MONO;
 	private int encodingFormat=AudioFormat.ENCODING_PCM_16BIT;
 	int minBufSize=AudioRecord.getMinBufferSize(sampleRate,channelConfig,encodingFormat)+4096;
 	int bufferSize=0;
-	public String ipAddress="10.105.14.252";
+	public String ipAddress="10.105.15.138";
 	private static final String IPV4_NUM       ="([01]?\\d\\d?|2[0-4]\\d|25[0-5])";		//REGULAR EXPRESSION FOR IP NUM
 	private static final String IP_DOT         ="\\.";
 	private static final String IPV4_PATTERN   ="^"+IPV4_NUM+IP_DOT+IPV4_NUM+IP_DOT+IPV4_NUM+IP_DOT+IPV4_NUM+"$";	
@@ -34,17 +34,19 @@ public class AudioSession {
 	
 	public
 	void stopStreaming(){	//TO STOP AUDIO RECORDER BY RELEASING IT
+		
+		if(recorder!=null){
 		recorder.stop();
 		recorder.release();
 		recorder=null;
-		
+		}
 	}
 
 	public
 	void startStreaming(){	//START AUDIO RECORDING
 		//ipAddress=getIpAddress();
 		//port=getPort();
-		if(!isValidIPAddressAndPort(ipAddress,port)) return;	//CHECK FOR VALID IP AND PORT
+		//if(!isValidIPAddressAndPort(ipAddress,port)) return;	//CHECK FOR VALID IP AND PORT
 		//recordButton.setEnabled(false);
 		//recordButton.setText("");
 		//Log.e("startStreaming", "inStream");
@@ -95,19 +97,7 @@ public class AudioSession {
 		return Integer.valueOf(portText.isEmpty()?"0":portText);
 	}
 */
-	private
-	boolean isValidIPAddressAndPort(String ipAddress,int port){
-		if(!Pattern.compile(IPV4_PATTERN).matcher(ipAddress).matches()){
-			//Toast.makeText(this,"IP Address is invalid",Toast.LENGTH_SHORT).show();
-			return isRecording=false;
-		}
-		if(port<49152||port>65535){
-			//Toast.makeText(this,"Allowed Range for port is 49152 to 65535",Toast.LENGTH_LONG).show();
-			return isRecording=false;
-		}
-		return true;
-	}
-
+	
 	
 	public
 	void onRequestPress(){	//RAISE REQUEST FOR AUDIO DOUBT
