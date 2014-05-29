@@ -82,6 +82,8 @@ tview.setText(tview.getText()+"\n # "+messsage);
 tview123.setVisibility(View.VISIBLE);
 
 	
+	
+	
 
 }
 
@@ -96,7 +98,7 @@ private class SendMessage extends AsyncTask<Void, Void, Void> {
 protected Void doInBackground(Void... params) {
 try {
  
-client = new Socket("10.105.14.34", 4444); // connect to the server
+client = new Socket("10.4.225.78", 4444); // connect to the server
 printwriter = new PrintWriter(client.getOutputStream(), true);
 printwriter.write(messsage); // write the message to output stream
  
@@ -104,9 +106,11 @@ printwriter.flush();
 printwriter.close();
 client.close(); // closing the connection
  
-} catch (Exception e) {
-	Toast.makeText(getApplicationContext(), e.toString(),Toast.LENGTH_SHORT).show();
-} 
+} catch (UnknownHostException e) {
+e.printStackTrace();
+} catch (IOException e) {
+e.printStackTrace();
+}
 return null;
 }
  
